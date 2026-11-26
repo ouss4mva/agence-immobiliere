@@ -17,6 +17,7 @@ export default function Navbar() {
   const [menuOuvert, setMenuOuvert] = useState(false);
   const operation = new URLSearchParams(search).get("type_operation");
   const pageAuth = pathname === "/connexion" || pathname === "/inscription";
+  const pageAdmin = pathname.startsWith("/admin");
 
   const estActif = (onglet) =>
     onglet.operation === null
@@ -69,7 +70,7 @@ export default function Navbar() {
         </div>
       </div>
 
-          <BarreRecherche />
+            {!pageAdmin && <BarreRecherche />}
     </header>
   );
 }
