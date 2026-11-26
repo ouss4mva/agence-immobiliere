@@ -5,4 +5,6 @@ export const extraireErreurs = (err) =>
   );
 
 export const messageErreur = (err) =>
-  err.response ? "Une erreur est survenue, veuillez réessayer." : "Impossible de contacter le serveur.";
+  err.response
+    ? `Erreur serveur (${err.response.status}) : ${err.response.data?.message ?? "réessayez."}`
+    : "Impossible de contacter le serveur.";
